@@ -1,5 +1,7 @@
 FROM solr:8.7.0
 
+USER root
+
 # https://docs.microsoft.com/en-gb/azure/app-service/configure-custom-container?pivots=container-linux#enable-ssh
 RUN apt-get update \
   && apt-get install -y openssh-server \
