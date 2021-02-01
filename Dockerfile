@@ -7,6 +7,9 @@ RUN apt-get update \
   && apt-get install -y openssh-server \
   && echo "root:Docker!" | chpasswd
 
+RUN mkdir /run/sshd \
+  && echo 'solr ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
 # https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config
 COPY sshd_config /etc/ssh/
 
